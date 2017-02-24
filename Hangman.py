@@ -1,3 +1,4 @@
+
 import random
 library = ['acres',
 		   'adult',
@@ -165,13 +166,17 @@ def game(word,pname):
 	guesslist = []
 	while strikes <=11:
 		displayer(word,guesslist,strikes)
-		check = input("Take a guess.")
+		check = input("Take a guess.").lower()
 		if len(check)>1:
 			print("One Letter Only")
 			continue
 		elif check in guesslist:
 			print("Already tried, pick again.")
 			continue
+		elif check == " ":
+			print('Gotta try something')
+			continue
+		print("Trying "+ check)
 		guesslist.append(check)
 		if lettercheck(word,check):
 			print("CORRECT")
