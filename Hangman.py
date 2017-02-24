@@ -139,6 +139,7 @@ def displayer(word,guesslist,strikes):
 			triedlist += alpha
 		else:
 			triedlist += ' '
+	print(triedlist)
 	print(['',' =',' ==',' ==\n l',' ==\n l\n l',' ==\n l\n l\n 0',' ==\n l\n l\n 0\n\\',' ==\n l\n l\n 0\n\\!',' ==\n l\n l\n 0\n\\!/',' ==\n l\n l\n 0\n\\!/\n i',' ==\n l\n l\n 0\n\\!/\n i\n /',' ==\n l\n l\n 0\n\\!/\n i\n /\\'][strikes])
 	return
 
