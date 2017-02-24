@@ -1,5 +1,3 @@
-
-
 import random
 library = ['acres',
 		   'adult',
@@ -135,13 +133,19 @@ def displayer(word,guesslist,strikes):
 		if word[letter] in guesslist:
 			printlist = printlist[:(letter*2+1)]+word[letter]+printlist[(letter*2+2):]
 	print(printlist)
+	triedlist=''
+	for alpha in "abcdefghijklmnopqrstuvwxyz":
+		if alpha in guesslist:
+			triedlist += alpha
+		else:
+			triedlist += ' '
 	print(['',' =',' ==',' ==\n l',' ==\n l\n l',' ==\n l\n l\n 0',' ==\n l\n l\n 0\n\\',' ==\n l\n l\n 0\n\\!',' ==\n l\n l\n 0\n\\!/',' ==\n l\n l\n 0\n\\!/\n i',' ==\n l\n l\n 0\n\\!/\n i\n /',' ==\n l\n l\n 0\n\\!/\n i\n /\\'][strikes])
 	return
 
 def setup():
-	name = input("Enter your name")
+	pname = input("Enter your name")
 	score = 0
-	return name,score
+	return pname,score
 	
 def lettercheck(word,letter):
 	if letter in word:
@@ -155,7 +159,7 @@ def endgame(word,guesslist):
 			return False
 	return True
 	
-def game(word):
+def game(word,pname):
 	strikes =0
 	guesslist = []
 	while strikes <=11:
@@ -174,24 +178,24 @@ def game(word):
 			strikes+=1
 			print("FAIL")
 		if endgame(word,guesslist)==True:			
-			print("Congratulations, You win")
+			print("Congratulations, "+ pname +". You win")
 			points = (len(word)*100)-(len(guesslist)*10)
 			print("Gained "+str(points)+" points.")
 			return points
 		else:
 			continue
-	print("Better luck next time.\n0 points")
+	print("Better luck next time, "+ pname +".\n0 points")
 	return 0
 
 def hangman():
-	name,score=setup()
+	pname,score=setup()
 	while True:
 		print('Score: '+str(score))
 		keepplay=input("Ready?")
 		if keepplay in ['no','No','n','N']:
 			break
 		word = library[random.randint(0,len(library)-1)]
-		score+=game(word)
+		score+=game(word,pname)
 	
 if __name__ == "__main__":
   hangman()   	
