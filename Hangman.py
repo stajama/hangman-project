@@ -201,7 +201,7 @@ def game(word):
 			strikes+=1
 			print("FAIL")
 		if endgame(word,guesslist)==True:			
-print("Congratulations, You win")
+			print("Congratulations, You win")
 			points = (len(word)*100)-(len(guesslist)*10)
 			print("Gained "+str(points)+" points.")
 			return points
@@ -222,4 +222,5 @@ def hangman():
 	
 if __name__ == "__main__":
   hangman()   	
+	
 	
