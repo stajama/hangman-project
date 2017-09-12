@@ -47,7 +47,7 @@ def displayer(word, guesslist, strikes):
 
 
 def setup():
-    pname = input("Enter your name")
+    pname = input("Enter your name: ")
     score = 0
     return pname, score
 
@@ -73,21 +73,21 @@ def game(word, pname):
         displayer(word, guesslist, strikes)
         check = input("Take a guess.").lower()
         if len(check) > 1:
-            print("One Letter Only")
+            print("One Letter Only\n\n")
             continue
         elif check in guesslist:
-            print("Already tried, pick again.")
+            print("Already tried, pick again.\n\n")
             continue
         elif check == " ":
-            print('Gotta try something')
+            print('Gotta try something.\n\n')
             continue
         print("Trying " + check)
         guesslist.append(check)
         if lettercheck(word, check):
-            print("CORRECT")
+            print("CORRECT\n\n")
         else:
             strikes += 1
-            print("FAIL")
+            print("FAIL\n\n")
         if endgame(word, guesslist):
             print("Congratulations, " + pname + ". You win")
             points = (len(word) * 100) - (len(guesslist) * 10)
@@ -95,7 +95,7 @@ def game(word, pname):
             return points
         else:
             continue
-    print("Better luck next time, " + pname + ".\n0 points")
+    print("The word was: " + word + ". Better luck next time, " + pname + ".\n0 points\n\n")
     return 0
 
 
@@ -108,6 +108,7 @@ def hangman():
             break
         word = library[random.randint(0, len(library) - 1)]
         score += game(word, pname)
+    print("Thanks for playing!")
 
 
 if __name__ == "__main__":
