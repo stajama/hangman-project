@@ -3,6 +3,6 @@ Hangman project for coding practice.
 
 For Python 3.
 
-Should run in command line as script.
+Runs as a command line script.
 
 Welcome all feedback.
